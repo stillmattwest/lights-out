@@ -66,6 +66,10 @@ const LightGrid = (props) => {
 
     const checkForWin = () => {
         const winState = grid.every(row => row.every(cell => !cell));
+        props.endGame();
+        setStarted(false);
+        props.setModalMessage('You Win!');
+        props.toggleModal();
         console.log(`winState: ${winState}`);
     }
 
