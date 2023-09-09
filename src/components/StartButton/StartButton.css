@@ -1,0 +1,12 @@
+.start-button {
+    background-color: black;
+    border: 1px solid aqua;
+    color: aqua;
+    font-size: 1.5em;
+    padding: .5em;
+}
+
+.button-container {
+    margin: 20px auto;
+    text-align: center;
+}
