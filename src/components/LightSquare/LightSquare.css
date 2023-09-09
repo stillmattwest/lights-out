@@ -1,0 +1,10 @@
+.light-square {
+    flex-basis: calc(100% / 5);
+    height: calc(100%/5);
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+
+.lit {
+    background-color: aqua;
+}
