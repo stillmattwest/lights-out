@@ -7,6 +7,9 @@ const Modal = (props) => {
         
             <div className='modal-overlay'>
                 <div className='modal-content'>
+                    <div className='modal-controls'>
+                        <button className="modal-close-button" onClick={props.toggleModal}> X</button>
+                    </div>
                     {props.children}
                 </div>
             </div>
