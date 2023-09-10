@@ -17,5 +17,7 @@
     width: 400px;
     max-height: 80%;
     overflow-y: auto;
+    color:black;
+    text-align: center;
   }
   
