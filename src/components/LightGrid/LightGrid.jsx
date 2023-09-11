@@ -65,13 +65,13 @@ const LightGrid = (props) => {
 
     const checkForWin = () => {
         const winState = grid.every(row => row.every(cell => !cell));
-        if(winState){
+        if (winState) {
             props.endGame();
             setStarted(false);
             props.setModalMessage('You Win!');
             props.toggleModal();
         }
-      
+
         console.log(`winState: ${winState}`);
     }
 
@@ -87,16 +87,19 @@ const LightGrid = (props) => {
     }
 
     return (
-        <div className="container">
-            {grid.map((row, rowIndex) => {
-                return (row.map((isLit, colIndex) => {
-                    return (
-                        <LightSquare isLit={isLit} row={rowIndex + 1} col={colIndex + 1} key={`${rowIndex+1}-${colIndex+1}`} toggleSquareHandler={toggleSquareHandler} />
-                    )
-                }))
-            })}
-        </div>
-    )
+        <>
+            <div className="container">
+                {grid.map((row, rowIndex) => {
+                    return (row.map((isLit, colIndex) => {
+                        return (
+                            <LightSquare isLit={isLit} row={rowIndex + 1} col={colIndex + 1} key={`${rowIndex + 1}-${colIndex + 1}`} toggleSquareHandler={toggleSquareHandler} />
+                        )
+                    }))
+                })}
+            </div>
+        </>
+    );
+
 }
 
 export default LightGrid;

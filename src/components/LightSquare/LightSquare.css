@@ -1,16 +1,27 @@
 .light-square {
-    flex-basis: calc(100% / 5);
-    height: calc(100%/5);
-    box-sizing: border-box;
-    border: 1px solid gray;
+  flex-basis: calc(100% / 5);
+  height: calc(100%/5);
+  box-sizing: border-box;
+  border: 1px solid gray;
 }
 
 .lit {
-    background-color: #fff; /* White background */
+  position: relative;
+  background-color: #fff;
+}
+
+.lit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   box-shadow:
-    0 0 21px #fff,  /* White glow */
-    0 0 42px #0099ff,  /* Additional blue layer with shorter radius */
-    0 0 102px #0099ff,  /* Electric blue tint */
-    0 0 151px #0099ff; 
-    
+    0 0 21px #0099ff,
+    0 0 42px #0099ff,
+    0 0 82px #0099ff,
+    0 0 102px #0099ff,
+    0 0 151px #0099ff;
+  z-index: -1;
 }
