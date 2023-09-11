@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Header from './components/Header/Header';
 import LightGrid from './components/LightGrid/LightGrid';
-import StartButton from './components/StartButton/StartButton';
+import GameControls from './components/GameConrols/GameControls';
 import Modal from './components/Modal/Modal';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     <>
       <Header />
       <LightGrid start={start} endGame={endGame} toggleModal={toggleModalHandler} setModalMessage={setModalMessageHandler} />
-      <StartButton onClick={startButtonClickHandler} />
+      <GameControls startButtonClickHandler={startButtonClickHandler} />
       <Modal isOpen={showModal} toggleModal={toggleModalHandler}>
         <p>{modalMessage}</p>
       </Modal>
