@@ -10,7 +10,7 @@ const Modal = (props) => {
                     <div className='modal-controls'>
                         <button className="modal-close-button neon-blue" onClick={props.toggleModal}> X</button>
                     </div>
-                    {props.children}
+                    <span class='modal-message-text'>{props.children}</span>
                 </div>
             </div>
 
