@@ -2,23 +2,23 @@ import './Modal.css';
 
 const Modal = (props) => {
 
-    if(props.isOpen){
-        return(
-        
+    if (props.isOpen) {
+        return (
+
             <div className='modal-overlay'>
-                <div className='modal-content'>
+                <div className='modal-content neon-blue'>
                     <div className='modal-controls'>
-                        <button className="modal-close-button" onClick={props.toggleModal}> X</button>
+                        <button className="modal-close-button neon-blue" onClick={props.toggleModal}> X</button>
                     </div>
                     {props.children}
                 </div>
             </div>
-        
+
         )
-    }else{
+    } else {
         return null;
     }
-    
+
 }
 
 export default Modal;
