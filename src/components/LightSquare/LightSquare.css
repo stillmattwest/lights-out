@@ -3,6 +3,7 @@
   height: calc(100%/5);
   box-sizing: border-box;
   border: 1px solid gray;
+  cursor: pointer;
 }
 
 .lit {
