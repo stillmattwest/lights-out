@@ -49,7 +49,7 @@ function App() {
       <Modal isOpen={showModal} toggleModal={toggleModalHandler}>
         <p>{modalMessage}</p>
       </Modal>
-      <PuzzleModal isOpen={showPuzzleModal} toggleModal={togglePuzzleModalHandler} setPuzzle={setSelectedPuzzleHandler}/>
+      <PuzzleModal isOpen={showPuzzleModal} toggleModal={togglePuzzleModalHandler} setPuzzle={setSelectedPuzzleHandler} selectedPuzzle={selectedPuzzle}/>
     </>
   )
 }

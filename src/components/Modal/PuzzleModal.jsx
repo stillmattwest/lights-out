@@ -11,16 +11,17 @@ const PuzzleModal = (props) => {
         return (
 
             <div className='modal-overlay'>
-                <div className='modal-content neon-blue'>
+                <div className='modal-content'>
                     <div className='modal-controls'>
                         <button className="modal-close-button" onClick={props.toggleModal}> X</button>
                     </div>
                     <div className='modal-list-container'>
                         <h2 className='modal-h2'>Select Puzzle</h2>
                         <ul className='modal-puzzle-list'>
-                            {puzzleNames.map((puzzle,indexVal) => <li key={`p${indexVal}`} onClick={props.setPuzzle}>{puzzles[puzzle].name}</li>
+                            {puzzleNames.map((puzzle,indexVal) => <li key={`p${indexVal}`} className={puzzles[puzzle].name === props.selectedPuzzle ? 'neon-blue modal-selected':''} onClick={props.setPuzzle}>{puzzles[puzzle].name}</li>
                             )}
                         </ul>
+                        <button className='modal-button' onClick={props.toggleModal}>Set Puzzle</button>
                     </div>
                 </div>
             </div>
