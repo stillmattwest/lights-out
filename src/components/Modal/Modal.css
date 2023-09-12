@@ -48,8 +48,23 @@
 
 }
 
-.modal-message-text {
+.modal-message-text,.modal-puzzle-list{
   position: relative;
   top: -15px;
   font-size: 32px;
+  padding:0px;
+}
+
+.modal-h2{
+  font-size:1.5em;
+}
+
+
+.modal-puzzle-list li{
+  list-style-type: none;
+  font-size:1em;
+  padding-bottom:10px;
+  cursor: pointer;
+  font-size: 24px;
+  
 }

@@ -21,8 +21,6 @@
   box-shadow:
     0 0 21px #0099ff,
     0 0 42px #0099ff,
-    0 0 82px #0099ff,
-    0 0 102px #0099ff,
-    0 0 151px #0099ff;
+    0 0 82px #0099ff;
   z-index: -1;
 }

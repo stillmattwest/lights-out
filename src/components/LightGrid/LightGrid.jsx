@@ -2,6 +2,8 @@ import "./LightGrid.css";
 import { useState, useEffect, useRef } from 'react';
 import LightSquare from '../LightSquare/LightSquare';
 
+import puzzles from '../../puzzles/puzzles';
+
 
 const LightGrid = (props) => {
 
@@ -77,11 +79,21 @@ const LightGrid = (props) => {
 
     const startGame = () => {
         // TODO make multiple possible starting game states
-
+        const currentPuzzle = Object.values(puzzles).find(puzzle => puzzle.name === props.selectedPuzzle);
+        // console.log(`currentPuzzle: ${currentPuzzle.name}`);
+        const puzzleGrid = currentPuzzle.grid;
         let newGrid = [...grid.map(row => [...row])];
-        newGrid[2][0] = !newGrid[2][1];
-        newGrid[2][2] = !newGrid[2][2];
-        newGrid[2][4] = !newGrid[2][4];
+        puzzleGrid.forEach(square => {
+            const row = square[0];
+            const col = square[1];
+            newGrid[row][col] = true;
+        })
+
+
+        // let newGrid = [...grid.map(row => [...row])];
+        // newGrid[2][0] = !newGrid[2][1];
+        // newGrid[2][2] = !newGrid[2][2];
+        // newGrid[2][4] = !newGrid[2][4];
         setGrid(newGrid);
         setStarted(true);
     }
