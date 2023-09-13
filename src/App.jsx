@@ -7,12 +7,13 @@ import LightGrid from './components/LightGrid/LightGrid';
 import GameControls from './components/GameConrols/GameControls';
 import Modal from './components/Modal/Modal';
 import PuzzleModal from './components/Modal/PuzzleModal';
+import PuzzleIndicatior from './components/PuzzleIndicator/PuzzleIndicatior';
 
 function App() {
 
   const [start, setStart] = useState(false);
   const [showModal,setShowModal] = useState(false);
-  const [showPuzzleModal,setShowPuzzleModal] = useState(true);
+  const [showPuzzleModal,setShowPuzzleModal] = useState(false);
   const [modalMessage,setModalMessage] = useState('');
   const [selectedPuzzle,setSelectedPuzzle] = useState('Center Three');
 
@@ -41,11 +42,14 @@ function App() {
     setSelectedPuzzle(selectedPuzzle);
   }
 
+
+
   return (
     <>
       <Header />
       <LightGrid start={start} endGame={endGame} toggleModal={toggleModalHandler} setModalMessage={setModalMessageHandler} selectedPuzzle={selectedPuzzle} />
-      <GameControls startButtonClickHandler={startButtonClickHandler} />
+      <GameControls startButtonClickHandler={startButtonClickHandler} selectPuzzleClickHandler={togglePuzzleModalHandler} />
+      <PuzzleIndicatior puzzleName={selectedPuzzle}/>
       <Modal isOpen={showModal} toggleModal={toggleModalHandler}>
         <p>{modalMessage}</p>
       </Modal>

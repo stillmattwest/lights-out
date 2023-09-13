@@ -5,7 +5,7 @@ import PuzzleSelectButton from './PuzzleSelectButton';
 const GameControls = (props) => {
     return(
         <div className='button-container'>
-        <PuzzleSelectButton setPuzzle={props.selectPuzzle}/>
+        <PuzzleSelectButton setPuzzle={props.selectPuzzle} onClick={props.selectPuzzleClickHandler}/>
         <StartButton onClick={props.startButtonClickHandler}/>
             
     </div>

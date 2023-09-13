@@ -1,0 +1,10 @@
+.puzzle-name{
+    font-size:1.2em;
+}
+
+.puzzle-name-container{
+    width:600px;
+    margin:0 auto;
+    text-align:center;
+    padding-top:10px;
+}

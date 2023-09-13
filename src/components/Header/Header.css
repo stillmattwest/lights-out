@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'neon';
-  src: url('../../../public/assets/fonts/neon.ttf') format('truetype');
+  src: url('../../assets/fonts/neon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
