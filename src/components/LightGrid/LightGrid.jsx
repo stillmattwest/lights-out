@@ -74,7 +74,6 @@ const LightGrid = (props) => {
             props.toggleModal();
         }
 
-        console.log(`winState: ${winState}`);
     }
 
     const startGame = () => {
@@ -89,11 +88,6 @@ const LightGrid = (props) => {
             newGrid[row][col] = true;
         })
 
-
-        // let newGrid = [...grid.map(row => [...row])];
-        // newGrid[2][0] = !newGrid[2][1];
-        // newGrid[2][2] = !newGrid[2][2];
-        // newGrid[2][4] = !newGrid[2][4];
         setGrid(newGrid);
         setStarted(true);
     }
