@@ -2,7 +2,7 @@ import './Modal.css';
 
 import { useGameContext } from '../../context/GameContext';
 
-const Modal = (props) => {
+const Modal = () => {
 
     const { showModal, setShowModal, modalMessage } = useGameContext();
 

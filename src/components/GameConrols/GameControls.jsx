@@ -2,7 +2,7 @@ import './GameControls.css';
 import StartButton from './StartButton';
 import PuzzleSelectButton from './PuzzleSelectButton';
 
-const GameControls = (props) => {
+const GameControls = () => {
     return (
         <div className='button-container'>
             <PuzzleSelectButton />
