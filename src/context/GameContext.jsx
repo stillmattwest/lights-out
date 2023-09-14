@@ -14,32 +14,8 @@ export const GameProvider = ({ children }) => {
     const [modalMessage, setModalMessage] = useState('');
     const [selectedPuzzle, setSelectedPuzzle] = useState('Center Three');
 
-    // const startButtonClickHandler = () => {
-    //     setStart(true);
-    // }
 
-    // const endGame = () => {
-    //     setStart(false);
-    // }
-
-    // const toggleModalHandler = () => {
-    //     setShowModal(!showModal);
-    // }
-
-    // const togglePuzzleModalHandler = () => {
-    //     setShowPuzzleModal(!showPuzzleModal);
-    // }
-
-    // const setModalMessageHandler = (msg) => {
-    //     setModalMessage(msg);
-    // }
-
-    // const setSelectedPuzzleHandler = (e) => {
-    //     const selectedPuzzle = e.target.innerText;
-    //     setSelectedPuzzle(selectedPuzzle);
-    // }
-
-    const ctx = {
+    const value = {
         start,
         setStart,
         showModal,
@@ -53,7 +29,7 @@ export const GameProvider = ({ children }) => {
     };
 
     return (
-        <GameContext.Provider value={ctx}>
+        <GameContext.Provider value={value}>
             {children}
         </GameContext.Provider>
     );
