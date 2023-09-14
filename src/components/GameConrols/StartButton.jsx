@@ -1,7 +1,11 @@
+import { useGameContext } from "../../context/GameContext";
 
-const StartButton = (props) => {
+
+
+const StartButton = () => {
+    const { setStart } = useGameContext();
     return (
-        <button className='start-button neon-blue' onClick={props.onClick}>Begin Game</button>
+        <button className='start-button neon-blue' onClick={() => setStart(true)}>Begin Game</button>
 
     )
 }

@@ -1,27 +1,30 @@
 import './Modal.css';
 
+import { useGameContext } from '../../context/GameContext';
+
 import puzzles from '../../puzzles/puzzles';
 
-const PuzzleModal = (props) => {
-  //  Object.entries(puzzles).forEach(puzzle => console.log(`puzzle: ${puzzle[0]}, difficulty: ${puzzle[1].difficulty}`));
-  const puzzleNames = Object.keys(puzzles).sort((a,b) => a-b);
+const PuzzleModal = () => {
+
+    const { showPuzzleModal, setShowPuzzleModal, selectedPuzzle, setSelectedPuzzle } = useGameContext();
+    const puzzleNames = Object.keys(puzzles).sort((a, b) => a - b);
 
 
-    if (props.isOpen) {
+    if (showPuzzleModal) {
         return (
 
             <div className='modal-overlay'>
                 <div className='modal-content'>
                     <div className='modal-controls'>
-                        <button className="modal-close-button" onClick={props.toggleModal}> X</button>
+                        <button className="modal-close-button" onClick={() => setShowPuzzleModal(false)}> X</button>
                     </div>
                     <div className='modal-list-container'>
                         <h2 className='modal-h2'>Select Puzzle</h2>
                         <ul className='modal-puzzle-list'>
-                            {puzzleNames.map((puzzle,indexVal) => <li key={`p${indexVal}`} className={puzzles[puzzle].name === props.selectedPuzzle ? 'neon-blue modal-selected':''} onClick={props.setPuzzle}>{puzzles[puzzle].name}</li>
+                            {puzzleNames.map((puzzle, indexVal) => <li key={`p${indexVal}`} className={puzzles[puzzle].name === selectedPuzzle ? 'neon-blue modal-selected' : ''} onClick={() => setSelectedPuzzle(puzzles[puzzle].name)}>{puzzles[puzzle].name}</li>
                             )}
                         </ul>
-                        <button className='modal-button' onClick={props.toggleModal}>Set Puzzle</button>
+                        <button className='modal-button' onClick={() => setShowPuzzleModal(false)}>Set Puzzle</button>
                     </div>
                 </div>
             </div>

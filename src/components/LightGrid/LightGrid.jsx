@@ -1,11 +1,17 @@
 import "./LightGrid.css";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import LightSquare from '../LightSquare/LightSquare';
 
 import puzzles from '../../puzzles/puzzles';
 
+import { useGameContext } from "../../context/GameContext";
 
-const LightGrid = (props) => {
+
+
+const LightGrid = () => {
+
+    const { start, setStart, selectedPuzzle, setModalMessage, setShowModal } = useGameContext();
+
 
     let initialGrid = [];
     for (let row = 0; row < 5; row++) {
@@ -22,7 +28,7 @@ const LightGrid = (props) => {
 
     useEffect(() => {
 
-        if (!props.start) {
+        if (!start) {
             return;
         } else {
             if (!started) {
@@ -33,7 +39,7 @@ const LightGrid = (props) => {
 
         checkForWin();
 
-    }, [grid, props.start, started]);
+    }, [grid, start, started]);
 
     const toggleSquareHandler = e => {
         const row = e.target.getAttribute("row") - 1;
@@ -68,17 +74,18 @@ const LightGrid = (props) => {
     const checkForWin = () => {
         const winState = grid.every(row => row.every(cell => !cell));
         if (winState) {
-            props.endGame();
             setStarted(false);
-            props.setModalMessage('You Win!');
-            props.toggleModal();
+            setStart(false);
+
+            setModalMessage('You Win!');
+            setShowModal(true);
         }
 
     }
 
     const startGame = () => {
         // TODO make multiple possible starting game states
-        const currentPuzzle = Object.values(puzzles).find(puzzle => puzzle.name === props.selectedPuzzle);
+        const currentPuzzle = Object.values(puzzles).find(puzzle => puzzle.name === selectedPuzzle);
         // console.log(`currentPuzzle: ${currentPuzzle.name}`);
         const puzzleGrid = currentPuzzle.grid;
         let newGrid = [...grid.map(row => [...row])];

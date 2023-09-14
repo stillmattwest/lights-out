@@ -3,14 +3,14 @@ import StartButton from './StartButton';
 import PuzzleSelectButton from './PuzzleSelectButton';
 
 const GameControls = (props) => {
-    return(
+    return (
         <div className='button-container'>
-        <PuzzleSelectButton setPuzzle={props.selectPuzzle} onClick={props.selectPuzzleClickHandler}/>
-        <StartButton onClick={props.startButtonClickHandler}/>
-            
-    </div>
+            <PuzzleSelectButton />
+            <StartButton />
+
+        </div>
     )
-  
+
 
 }
 
