@@ -10,23 +10,19 @@ import { useGameContext } from "../../context/GameContext";
 
 const LightGrid = () => {
 
-    const { start, setStart, selectedPuzzle, setModalMessage, setShowModal } = useGameContext();
 
+    const { start, setStart, selectedPuzzle, setModalMessage, setShowModal, reset, setReset } = useGameContext();
 
-    let initialGrid = [];
-    for (let row = 0; row < 5; row++) {
-        let newRow = [];
-        for (let col = 0; col < 5; col++) {
-            newRow.push(false);
-        }
-        initialGrid.push(newRow);
-    }
-
-    const [grid, setGrid] = useState(initialGrid);
+    const [grid, setGrid] = useState([]);
     const [started, setStarted] = useState(false);
 
-
     useEffect(() => {
+
+        if(!reset){
+            resetGrid();
+            return;
+
+        }
 
         if (!start) {
             return;
@@ -39,7 +35,39 @@ const LightGrid = () => {
 
         checkForWin();
 
-    }, [grid, start, started]);
+    }, [grid, start, started,reset]);
+
+    const resetGrid = () => {
+        let emptyGrid = [];
+        for (let row = 0; row < 5; row++) {
+            let newRow = [];
+            for (let col = 0; col < 5; col++) {
+                newRow.push(false);
+            }
+            emptyGrid.push(newRow);
+        }
+        setStarted(false);
+        setReset(true);
+        setGrid(emptyGrid);
+        
+
+    }
+
+    const buildSelectedPuzzle = () => {
+          const currentPuzzle = Object.values(puzzles).find(puzzle => puzzle.name === selectedPuzzle);
+          // console.log(`currentPuzzle: ${currentPuzzle.name}`);
+          const puzzleGrid = currentPuzzle.grid;
+          
+          let newGrid = [...grid.map(row => [...row])];
+          puzzleGrid.forEach(square => {
+              const row = square[0];
+              const col = square[1];
+              newGrid[row][col] = true;
+          })
+  
+          setGrid(newGrid);
+
+    }
 
     const toggleSquareHandler = e => {
         const row = e.target.getAttribute("row") - 1;
@@ -84,19 +112,9 @@ const LightGrid = () => {
     }
 
     const startGame = () => {
-        // TODO make multiple possible starting game states
-        const currentPuzzle = Object.values(puzzles).find(puzzle => puzzle.name === selectedPuzzle);
-        // console.log(`currentPuzzle: ${currentPuzzle.name}`);
-        const puzzleGrid = currentPuzzle.grid;
-        let newGrid = [...grid.map(row => [...row])];
-        puzzleGrid.forEach(square => {
-            const row = square[0];
-            const col = square[1];
-            newGrid[row][col] = true;
-        })
-
-        setGrid(newGrid);
+        buildSelectedPuzzle();
         setStarted(true);
+        
     }
 
     return (

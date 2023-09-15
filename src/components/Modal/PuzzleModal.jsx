@@ -1,13 +1,18 @@
 import './Modal.css';
 
-import { useGameContext } from '../../context/GameContext';
+import { useGameContext} from '../../context/GameContext';
 
 import puzzles from '../../puzzles/puzzles';
 
 const PuzzleModal = () => {
 
-    const { showPuzzleModal, setShowPuzzleModal, selectedPuzzle, setSelectedPuzzle } = useGameContext();
+    const { showPuzzleModal, setShowPuzzleModal, selectedPuzzle, setSelectedPuzzle, setReset} = useGameContext();
     const puzzleNames = Object.keys(puzzles).sort((a, b) => a - b);
+
+    const setNewPuzzle = () => {
+        setReset(false);
+        setShowPuzzleModal(false);
+    }
 
 
     if (showPuzzleModal) {
@@ -24,7 +29,7 @@ const PuzzleModal = () => {
                             {puzzleNames.map((puzzle, indexVal) => <li key={`p${indexVal}`} className={puzzles[puzzle].name === selectedPuzzle ? 'neon-blue modal-selected' : ''} onClick={() => setSelectedPuzzle(puzzles[puzzle].name)}>{puzzles[puzzle].name}</li>
                             )}
                         </ul>
-                        <button className='modal-button' onClick={() => setShowPuzzleModal(false)}>Set Puzzle</button>
+                        <button className='modal-button' onClick={setNewPuzzle}>Set Puzzle</button>
                     </div>
                 </div>
             </div>

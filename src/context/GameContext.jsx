@@ -9,6 +9,7 @@ export const useGameContext = () => {
 
 export const GameProvider = ({ children }) => {
     const [start, setStart] = useState(false);
+    const [reset,setReset] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showPuzzleModal, setShowPuzzleModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
@@ -18,6 +19,8 @@ export const GameProvider = ({ children }) => {
     const value = {
         start,
         setStart,
+        reset,
+        setReset,
         showModal,
         setShowModal,
         modalMessage,
