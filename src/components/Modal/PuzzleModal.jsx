@@ -25,10 +25,28 @@ const PuzzleModal = () => {
                     </div>
                     <div className='modal-list-container'>
                         <h2 className='modal-h2'>Select Puzzle</h2>
-                        <ul className='modal-puzzle-list'>
+                        {/* <ul className='modal-puzzle-list'>
                             {puzzleNames.map((puzzle, indexVal) => <li key={`p${indexVal}`} className={puzzles[puzzle].name === selectedPuzzle ? 'neon-blue modal-selected' : ''} onClick={() => setSelectedPuzzle(puzzles[puzzle].name)}>{puzzles[puzzle].name}</li>
                             )}
-                        </ul>
+                        </ul> */}
+                        <table className='puzzle-modal-table'>
+                            <tbody>
+                                <tr className='puzzle-modal-th-row'>
+                                    <th>Puzzle</th>
+                                    <th>Difficulty</th>
+                                </tr>
+                            {puzzleNames.map((puzzle,index) => {
+                                const puzzleName = puzzles[puzzle]['name'];
+                                const puzzleDifficulty = puzzles[puzzle]['difficulty'];
+                                return( 
+                                    <tr key={`pm-table-row${index+1}`} onClick={() => setSelectedPuzzle(puzzleName)} >
+                                        <td>{puzzleName}</td>
+                                        <td>{puzzleDifficulty}</td>
+                                    </tr>
+                                )
+                            })}
+                            </tbody>
+                        </table>
                         <button className='modal-button' onClick={setNewPuzzle}>Set Puzzle</button>
                     </div>
                 </div>

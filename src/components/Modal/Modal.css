@@ -12,6 +12,7 @@
 
 .modal-content {
   background: black;
+  padding:10px;
   border-radius: 8px;
   width: 400px;
   max-height: 80%;
@@ -43,10 +44,23 @@
   color: white;
   margin-right: 15px;
   margin-top: 5px;
-  font-weight: bold;
   font-size: 20px;
   cursor: pointer;
 
+}
+
+
+.modal-close-button:hover{
+  font-weight: bold;
+  text-shadow:
+  /* White glow */
+  0 0 21px #fff,
+  /* Electric blue glow */
+  0 0 42px #00f,
+  0 0 82px #00f,
+  0 0 92px #00f,
+  0 0 102px #00f,
+  0 0 151px #00f;
 }
 
 .modal-message-text,.modal-puzzle-list{
@@ -81,4 +95,60 @@
   font-size: 1.5em;
   padding: .5em;
   cursor: pointer;
+  min-width:175px;
 }
+
+.modal-button:hover{
+  font-weight: bold;
+  text-shadow:
+  /* White glow */
+  0 0 21px #fff,
+  /* Electric blue glow */
+  0 0 42px #00f,
+  0 0 82px #00f,
+  0 0 92px #00f,
+  0 0 102px #00f,
+  0 0 151px #00f;
+}
+
+.puzzle-modal-table{
+  width:100%;
+  margin-bottom:25px;
+  font-size:1.4em;
+}
+
+.puzzle-modal-table tr{
+  cursor:pointer;
+
+}
+
+.puzzle-modal-table tr:hover{
+  font-weight: bold;
+  text-shadow:
+  /* White glow */
+  0 0 21px #fff,
+  /* Electric blue glow */
+  0 0 42px #00f,
+  0 0 82px #00f,
+  0 0 92px #00f,
+  0 0 102px #00f,
+  0 0 151px #00f;
+
+}
+
+
+
+.puzzle-modal-th-row:hover{
+  font-weight: normal !important;
+  text-shadow: none !important;
+  cursor: default;
+}
+
+
+
+.puzzle-modal-table td{
+  padding:5px;
+  min-width:175px;
+ 
+}
+
