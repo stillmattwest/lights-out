@@ -1,22 +1,31 @@
-import './LightSquare.css';
+import React from "react";
+import "./LightSquare.css";
 
-import { useGameContext } from '../../context/GameContext';
+import { useGameContext } from "../../context/GameContext";
 
-const LightSquare = (props) => {
-
-    const { start } = useGameContext();
-
-    const clickHander = (e) => {
-        if (start) {
-            props.toggleSquareHandler(e);
-        }
+const LightSquareComponent = ({
+  row,
+  col,
+  isLit,
+  toggleSquareHandler,
+  start,
+}) => {
+  const clickHander = (e) => {
+    if (start) {
+      toggleSquareHandler(e);
     }
-    return (
-        <div className={`light-square ${props.isLit ? 'lit' : ''}`} row={props.row} col={props.col} onClick={(e) => clickHander(e)}>
+  };
 
-        </div>
-    )
+  return (
+    <div
+      className={`light-square ${isLit ? "lit" : ""}`}
+      row={row}
+      col={col}
+      onClick={(e) => clickHander(e)}
+    ></div>
+  );
+};
 
-}
+const LightSquare = React.memo(LightSquareComponent);
 
 export default LightSquare;
