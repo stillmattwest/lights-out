@@ -15,7 +15,7 @@ const LightSquareComponent = ({
       toggleSquareHandler(e);
     }
   };
-
+  console.log(`render LightSquare ${row}-${col}`);
   return (
     <div
       className={`light-square ${isLit ? "lit" : ""}`}

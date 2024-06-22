@@ -36,7 +36,7 @@ const LightGrid = () => {
     }
 
     checkForWin();
-  }, [start, started, reset]);
+  }, [start, started, reset, grid]);
 
   const resetGrid = () => {
     let emptyGrid = [];
